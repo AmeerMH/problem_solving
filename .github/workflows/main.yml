@@ -39,7 +39,7 @@ jobs:
           docker rm my-api || true
 
           echo "🚀 Running new container..."
-          docker run -d -p 80:5000 --name my-api -e GEMINI_API_KEY=AIza... my-api
+          docker run -d -p 80:5000 --name my-api  my-api
 
           echo "✅ Deployment complete."
         EOF
