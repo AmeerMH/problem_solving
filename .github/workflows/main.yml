@@ -22,11 +22,14 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
-          cd ~/my-app
+        ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
+          echo "🧹 Removing old app..."
+          rm -rf ~/my-app
 
-          echo "🔄 Pulling latest code..."
-          git pull origin main
+          echo "⬇️ Cloning private repo from GitHub..."
+          git clone https://${{ secrets.GH_TOKEN }}@github.com/AmeerMH/test.git ~/my-app
+
+          cd ~/my-app
 
           echo "🐳 Building Docker image..."
           docker build -t my-api .
