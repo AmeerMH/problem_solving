@@ -1,0 +1,42 @@
+name: Deploy to EC2 via SSH
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Setup SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+
+    - name: Deploy to EC2
+      run: |
+        ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
+          cd ~/my-app
+
+          echo "🔄 Pulling latest code..."
+          git pull origin main
+
+          echo "🐳 Building Docker image..."
+          docker build -t my-api .
+
+          echo "🛑 Stopping old container if exists..."
+          docker stop my-api || true
+          docker rm my-api || true
+
+          echo "🚀 Running new container..."
+          docker run -d -p 80:5000 --name my-api -e GEMINI_API_KEY=AIza... my-api
+
+          echo "✅ Deployment complete."
+        EOF
