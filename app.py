@@ -135,7 +135,7 @@ def home():
     <html>
       <head><title>Welcome</title></head>
       <body style="text-align: center; padding-top: 50px;">
-        <h1 style="color: green;"> Deployment Successful! gggggg</h1>
+        <h1 style="color: green;"> Deployment Successful! gggggg hhhh</h1>
         <p>Your Flask app is running on the server 🎉</p>
       </body>
     </html>
