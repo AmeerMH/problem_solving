@@ -19,8 +19,10 @@ jobs:
         echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
-
+    - name: Debug check host
+      run: echo "VM_HOST = ${{ secrets.VM_HOST }}"
     - name: Deploy to Google Cloud VM
+      
       run: |
         ssh ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << EOF
           echo "🧹 Removing old project folder..."
