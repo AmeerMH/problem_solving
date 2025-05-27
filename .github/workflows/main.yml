@@ -1,4 +1,4 @@
-name: Deploy to EC2 via SSH
+name: Deploy to Google Cloud VM via SSH
 
 on:
   push:
@@ -18,28 +18,31 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+        ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
 
-    - name: Deploy to EC2
+    - name: Deploy to Google Cloud VM
       run: |
-        ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} << EOF
-          echo "🧹 Removing old app..."
-          rm -rf ~/my-app
+        ssh ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << EOF
+          echo "🧹 Removing old project folder..."
+          rm -rf ~/shipment-extractor
 
-          echo "⬇️ Cloning private repo from GitHub..."
-          git clone https://${{ secrets.GH_TOKEN }}@github.com/AmeerMH/test.git ~/my-app
+          echo "⬇️ Cloning latest code from GitHub..."
+          git clone https://${{ secrets.GH_TOKEN }}@github.com/AmeerMH/test.git ~/shipment-extractor
 
-          cd ~/my-app
+          cd ~/shipment-extractor/test
 
           echo "🐳 Building Docker image..."
-          docker build -t my-api .
+          docker build -t shipment-extractor .
 
           echo "🛑 Stopping old container if exists..."
-          docker stop my-api || true
-          docker rm my-api || true
+          docker stop shipment-ai || true
+          docker rm shipment-ai || true
 
           echo "🚀 Running new container..."
-          docker run -d -p 80:5000 --name my-api  my-api
+          docker run -d -p 5000:8080 \
+            -v /home/${{ secrets.VM_USER }}/shipment-extractor/vertex-ai-access.json:/app/vertex-ai-access.json \
+            -e GOOGLE_APPLICATION_CREDENTIALS=/app/vertex-ai-access.json \
+            --name shipment-ai shipment-extractor
 
-          echo "✅ Deployment complete."
+          echo "✅ Deployment complete!"
         EOF
