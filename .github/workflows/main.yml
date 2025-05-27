@@ -13,7 +13,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
 
-      
+
     - name: Setup SSH key
       run: |
         mkdir -p ~/.ssh
@@ -46,6 +46,11 @@ jobs:
             -v /home/${{ secrets.VM_USER }}/shipment-extractor/vertex-ai-access.json:/app/vertex-ai-access.json \
             -e GOOGLE_APPLICATION_CREDENTIALS=/app/vertex-ai-access.json \
             --name shipment-ai shipment-extractor
+            -e GENAI_PROJECT_ID=logestechs-443407 \
+            -e GENAI_LOCATION=us-west4 \
+
+  
+
 
           echo "✅ Deployment complete!"
         EOF
