@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import google.generativeai as genai
 import unicodedata
 import os
+import re
 
 genai.configure(api_key=os.getenv("GENAI_API_KEY"))
 
@@ -10,6 +11,11 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     return "Hello, World!"
+
+
+def clean_json_response(text):
+    cleaned = re.sub(r"^```json\n|^```|```$", "", text.strip(), flags=re.MULTILINE)
+    return cleaned.strip()
 
 def normalize_text(text: str) -> str:
     return unicodedata.normalize("NFKC", text)
@@ -77,7 +83,13 @@ def extract_shipment():
 
     try:
         extracted_info = extract_shipment_info(prompt)
-        return jsonify({"response": extracted_info})
+        extracted_info_clean = clean_json_response(extracted_info)
+
+        extracted_info_json = json.loads(extracted_info_clean)
+        return jsonify(extracted_info_json)
+
+    except json.JSONDecodeError:
+        return jsonify({"error": "Failed to parse extracted information", "raw": extracted_info}), 500
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
