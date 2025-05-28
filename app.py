@@ -62,7 +62,7 @@ def extract_shipment_info(prompt: str) -> str:
 
     prompt = normalize_text(prompt)
 
-    model = genai.GenerativeModel("gemini-1.5-pro")  # أو gemini-pro أو gemini-1.0-pro حسب الموديل المتاح لك
+    model = genai.GenerativeModel("gemini-1.0-pro")  
 
     response = model.generate_content([system_instruction, prompt])
 
