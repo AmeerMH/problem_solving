@@ -65,8 +65,8 @@ def extract_shipment_info(prompt: str) -> str:
 
     prompt = normalize_text(prompt)
 
-    # Configure the model
-    model = GenerativeModel("gemini-1.5-pro")  # أو حسب المتاح
+    model = GenerativeModel("gemini-2.5-flash-preview-05-20")
+     
 
     response = model.generate_content(
         [system_instruction, prompt],
