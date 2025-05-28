@@ -1,157 +1,129 @@
-# from flask import Flask, request, jsonify
-# import google.generativeai as genai
-# from google.genai import types
-# import json
-
-# app = Flask(__name__)
-
-# @app.route('/')
-# def hello():
-#     return "Hello, World!"
-
-
-
-# import unicodedata
-
-# def normalize_text(text: str) -> str:
-#     # Normalize Arabic characters
-#     return unicodedata.normalize("NFKC", text)
-
-# def extract_shipment_info(prompt: str) -> str:
-#     system_instruction = """
-#     You are a helpful assistant for LogesTechs company. Your job is to extract shipment-related information 
-# from user messages written in Arabic or English.
-
-# Your goal is to extract and return the following structured data (if mentioned). If a field is not present, set its value to null.
-
-# Respond **only** in the following JSON format:
-
-# {
-#     "recipient_info": {
-#         "recipient_name": null,
-#         "recipient_phone_number": null,
-#         "recipient_address": null,
-#         "address_description": null,
-#         "location_link": null,
-#         "national_address": null
-#     },
-#     "payment_info": {
-#         "payment_method": null,
-#         "promo_offer": null,
-#         "total_inclusive_of_delivery": null,
-#         "collection_method": null,
-#         "insurance_activation": null
-#     },
-#     "service_info": {
-#         "service_type": null,
-#         "shipment_number": null,
-#         "expected_delivery_date": null,
-#         "expected_collection_date": null
-#     },
-#     "package_details": {
-#         "item_count": null,
-#         "package_type": null,
-#         "notes": null,
-#         "package_contents": null,
-#         "package_weight": null,
-#         "package_height": null,
-#         "package_length": null,
-#         "package_width": null
-#     }
-# }
-
-# Always return this full JSON with null values for anything not mentioned in the input.
-# Examples of service_type include: "pickup", "delivery", or "return".
-# If the user is asking a question or giving instructions about a shipment, infer the fields accordingly.
-#     """
-
-#     prompt = normalize_text(prompt)
-
-#     client = genai.Client(
-#         vertexai=True,
-#         project="logestechs-443407",
-#         location="us-west4",
-#     )
-
-#     content = [
-#         types.Content(role="user", parts=[types.Part(text=prompt)])
-#     ]
-
-#     generate_content_config =types.GenerateContentConfig(
-#         temperature=0,
-#         top_p=0.95,
-#         max_output_tokens=1024,
-#         response_modalities=["TEXT"],
-#         system_instruction=[types.Part.from_text(text=system_instruction)]
-#     )
-
-#     response_text = ""
-#     for chunk in client.models.generate_content_stream(
-#         model="gemini-2.0-flash-001",
-#         contents=content,
-#         config=generate_content_config
-#     ):
-#         response_text += chunk.text
-
-#     return response_text
-
-
-# @app.route('/extract_shipment', methods=['POST'])
-# def extract_shipment():
-#     # Get the JSON payload from the POST request
-#     data = request.get_json()
-
-#     # Check if the 'prompt' key exists in the JSON payload
-#     if 'prompt' not in data:
-#         return jsonify({"error": "Prompt is required"}), 400
-
-#     # Extract shipment information using the provided method
-#     prompt = data['prompt']
-#     extracted_info = extract_shipment_info(prompt)
-
-#     # Clean the extracted_info string by removing markdown formatting and newlines
-#     # Remove the surrounding code block and extra escape sequences like `\n`
-#     extracted_info_clean = extracted_info.strip('```json\n').strip('```').replace('\\n', '').strip()
-
-#     # Convert the cleaned string to a JSON object
-#     try:
-#         extracted_info_json = json.loads(extracted_info_clean)
-#     except json.JSONDecodeError:
-#         return jsonify({"error": "Failed to parse extracted information"}), 500
-    
-#     return jsonify(extracted_info_json)
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
-
-
 from flask import Flask, request, jsonify
+import google.generativeai as genai
+from google.genai import types
+import json
 
 app = Flask(__name__)
 
-# Health check endpoint
-@app.route('/', methods=['GET'])
-def home():
-    return "✅ API is running!"
+@app.route('/')
+def hello():
+    return "Hello, World!"
 
-# Sample POST endpoint
-@app.route('/predict', methods=['POST'])
-def predict():
-    data = request.get_json()
-    
-    # Just for demo: echo back the input
-    text = data.get('text', None)
-    
-    # Fake prediction logic
-    if not text:
-        return jsonify({'error': 'No text provided'}), 400
 
-    result = {
-        'input_text': text,
-        'prediction': f"Length of your text is {len(text)} characters."
+
+import unicodedata
+
+def normalize_text(text: str) -> str:
+    # Normalize Arabic characters
+    return unicodedata.normalize("NFKC", text)
+
+def extract_shipment_info(prompt: str) -> str:
+    system_instruction = """
+    You are a helpful assistant for LogesTechs company. Your job is to extract shipment-related information 
+from user messages written in Arabic or English.
+
+Your goal is to extract and return the following structured data (if mentioned). If a field is not present, set its value to null.
+
+Respond **only** in the following JSON format:
+
+{
+    "recipient_info": {
+        "recipient_name": null,
+        "recipient_phone_number": null,
+        "recipient_address": null,
+        "address_description": null,
+        "location_link": null,
+        "national_address": null
+    },
+    "payment_info": {
+        "payment_method": null,
+        "promo_offer": null,
+        "total_inclusive_of_delivery": null,
+        "collection_method": null,
+        "insurance_activation": null
+    },
+    "service_info": {
+        "service_type": null,
+        "shipment_number": null,
+        "expected_delivery_date": null,
+        "expected_collection_date": null
+    },
+    "package_details": {
+        "item_count": null,
+        "package_type": null,
+        "notes": null,
+        "package_contents": null,
+        "package_weight": null,
+        "package_height": null,
+        "package_length": null,
+        "package_width": null
     }
+}
+
+Always return this full JSON with null values for anything not mentioned in the input.
+Examples of service_type include: "pickup", "delivery", or "return".
+If the user is asking a question or giving instructions about a shipment, infer the fields accordingly.
+    """
+
+    prompt = normalize_text(prompt)
+
+    client = genai.Client(
+        vertexai=True,
+        project="logestechs-443407",
+        location="us-west4",
+    )
+
+    content = [
+        types.Content(role="user", parts=[types.Part(text=prompt)])
+    ]
+
+    generate_content_config =types.GenerateContentConfig(
+        temperature=0,
+        top_p=0.95,
+        max_output_tokens=1024,
+        response_modalities=["TEXT"],
+        system_instruction=[types.Part.from_text(text=system_instruction)]
+    )
+
+    response_text = ""
+    for chunk in client.models.generate_content_stream(
+        model="gemini-2.0-flash-001",
+        contents=content,
+        config=generate_content_config
+    ):
+        response_text += chunk.text
+
+    return response_text
+
+
+@app.route('/extract_shipment', methods=['POST'])
+def extract_shipment():
+    # Get the JSON payload from the POST request
+    data = request.get_json()
+
+    # Check if the 'prompt' key exists in the JSON payload
+    if 'prompt' not in data:
+        return jsonify({"error": "Prompt is required"}), 400
+
+    # Extract shipment information using the provided method
+    prompt = data['prompt']
+    extracted_info = extract_shipment_info(prompt)
+
+    # Clean the extracted_info string by removing markdown formatting and newlines
+    # Remove the surrounding code block and extra escape sequences like `\n`
+    extracted_info_clean = extracted_info.strip('```json\n').strip('```').replace('\\n', '').strip()
+
+    # Convert the cleaned string to a JSON object
+    try:
+        extracted_info_json = json.loads(extracted_info_clean)
+    except json.JSONDecodeError:
+        return jsonify({"error": "Failed to parse extracted information"}), 500
     
-    return jsonify(result)
+    return jsonify(extracted_info_json)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True,host='0.0.0.0', port=8080)
+
+
+
+
