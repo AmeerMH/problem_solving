@@ -46,6 +46,7 @@ jobs:
           docker run -d -p 5000:8080 \
           -v /home/${{ secrets.VM_USER }}/vertex-ai-access.json:/app/vertex-ai-access.json \
           -e GOOGLE_APPLICATION_CREDENTIALS=/app/vertex-ai-access.json \
+          -e GENAI_API_KEY=AIzaSyAJKvzlXO6dIATGzdoZdzIY2ypaaIYnN8Q \
           -e GENAI_PROJECT_ID=logestechs-443407 \
           -e GENAI_LOCATION=us-west4 \
           --name shipment-ai shipment-extractor

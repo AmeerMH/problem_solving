@@ -1,10 +1,9 @@
 from flask import Flask, request, jsonify
-from vertexai.preview.language_models import TextGenerationModel
+import google.generativeai as genai
 import unicodedata
-import json
-import vertexai
+import os
 
-vertexai.init(project="logestechs-443407", location="us-west4")
+genai.configure(api_key=os.getenv("GENAI_API_KEY"))
 
 app = Flask(__name__)
 
@@ -16,8 +15,6 @@ def normalize_text(text: str) -> str:
     return unicodedata.normalize("NFKC", text)
 
 def extract_shipment_info(prompt: str) -> str:
-    from vertexai.preview.generative_models import GenerativeModel
-
     system_instruction = """
     You are a helpful assistant for LogesTechs company. Your job is to extract shipment-related information 
     from user messages written in Arabic or English.
@@ -65,33 +62,24 @@ def extract_shipment_info(prompt: str) -> str:
 
     prompt = normalize_text(prompt)
 
-    model = GenerativeModel("gemini-2.5-flash-preview-05-20")
-     
+    model = genai.GenerativeModel("gemini-1.5-pro")  # أو gemini-pro أو gemini-1.0-pro حسب الموديل المتاح لك
 
-    response = model.generate_content(
-        [system_instruction, prompt],
-        generation_config={"temperature": 0.2, "max_output_tokens": 1024}
-    )
+    response = model.generate_content([system_instruction, prompt])
 
     return response.text
 
 @app.route('/extract_shipment', methods=['POST'])
 def extract_shipment():
     data = request.get_json()
-    if 'prompt' not in data:
+    prompt = data.get('prompt')
+    if not prompt:
         return jsonify({"error": "Prompt is required"}), 400
 
-    prompt = data['prompt']
-    extracted_info = extract_shipment_info(prompt)
-
-    extracted_info_clean = extracted_info.strip('```json\n').strip('```').replace('\\n', '').strip()
-
     try:
-        extracted_info_json = json.loads(extracted_info_clean)
-    except json.JSONDecodeError:
-        return jsonify({"error": "Failed to parse extracted information", "raw": extracted_info}), 500
-
-    return jsonify(extracted_info_json)
+        extracted_info = extract_shipment_info(prompt)
+        return jsonify({"response": extracted_info})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
