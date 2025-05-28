@@ -2,6 +2,9 @@ from flask import Flask, request, jsonify
 from vertexai.preview.language_models import TextGenerationModel
 import unicodedata
 import json
+import vertexai
+
+vertexai.init(project="logestechs-443407", location="us-west4")
 
 app = Flask(__name__)
 
