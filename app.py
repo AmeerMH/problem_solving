@@ -3,6 +3,7 @@ import google.generativeai as genai
 import unicodedata
 import os
 import re
+import json
 
 genai.configure(api_key=os.getenv("GENAI_API_KEY"))
 
