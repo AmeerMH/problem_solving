@@ -32,7 +32,8 @@ jobs:
           echo "⬇️ Cloning latest code from GitHub..."
           git clone https://${{ secrets.GH_TOKEN }}@github.com/AmeerMH/test.git ~/shipment-extractor
 
-          cd ~/shipment-extractor/test
+          cd ~/shipment-extractor
+          ls -a 
 
           echo "🐳 Building Docker image..."
           docker build -t shipment-extractor .
