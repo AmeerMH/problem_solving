@@ -87,7 +87,7 @@ def extract_shipment():
         extracted_info_clean = clean_json_response(extracted_info)
 
         extracted_info_json = json.loads(extracted_info_clean)
-        return jsonify(extracted_info_clean)
+        return jsonify(extracted_info_json)
 
     except json.JSONDecodeError:
         return jsonify({"error": "Failed to parse extracted information", "raw": extracted_info}), 500
