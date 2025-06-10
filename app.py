@@ -4,10 +4,12 @@ import unicodedata
 import os
 import re
 import json
+from flask_cors import CORS
 
 genai.configure(api_key=os.getenv("GENAI_API_KEY"))
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def hello():
