@@ -9,7 +9,8 @@ from flask_cors import CORS
 genai.configure(api_key=os.getenv("GENAI_API_KEY"))
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
+
 
 @app.route('/')
 def hello():
