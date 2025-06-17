@@ -1,0 +1,162 @@
+[
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "أريد تتبع شحنتي",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:46:40.242822",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "وين شحنتي؟",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:46:44.483408",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "أريد تتبع شحنتي برقم 100298037303",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:46:48.024422",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "ما هي الشركة و ما خدماتها  ؟",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:48:17.773577",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "ما هي الشركة و ما خدماتها  ؟",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:49:41.226041",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "ما هي الشركة و ما خدماتها  ؟",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:49:56.422834",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "أريد تتبع شحنتي",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:52:03.154464",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "وين شحنتي؟",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:52:08.409447",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "أريد تتبع شحنتي برقم 100298037303",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:52:12.902042",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  {
+    "stage": "extract_intent_stage_one",
+    "prompt": "ما هي خدماتكم؟",
+    "response": "yes",
+    "timestamp": "2025-06-17T08:52:18.333928",
+    "metadata": {
+      "instruction": "\n            Your task is to answer with only \"yes\" or \"no\".\n\n            If the user is asking about the company's services (such as tracking, delivery, shipping, or support), respond with \"yes\". Otherwise, respond with \"no\".\n\n            Here are some examples:\n\n            User: \"وين شحنتي؟\"\n            Answer: yes\n\n            User: \"كيف أتتبع طلبي؟\"\n            Answer: yes\n\n            User: \"شو بتقدموا خدمات؟\"\n            Answer: yes\n\n            User: \"شو رأيك في برشلونة؟\"\n            Answer: no\n\n            User: \"كيف الطقس اليوم؟\"\n            Answer: no\n\n            User: \"هل توصلوا للقدس؟\"\n            Answer: yes\n            ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10,
+      "expected_values": [
+        "yes",
+        "no"
+      ]
+    }
+  }
+]

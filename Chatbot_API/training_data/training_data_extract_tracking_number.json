@@ -1,0 +1,119 @@
+[
+  {
+    "stage": "extract_tracking_number",
+    "prompt": "أريد تتبع شحنتي",
+    "response": "NO_TRACKING_NUMBER",
+    "timestamp": "2025-06-17T08:46:40.724259",
+    "metadata": {
+      "instruction": "\n        Your task is to extract a tracking number from the user's message, if one exists.\n        Common tracking number formats include:\n        - LT followed by 10 digits (e.g., LT1234567890)\n        - 16 digit numbers (e.g., 1234567890123456)\n        - Alphanumeric codes like AB123456789CD\n        - 12 digit numbers starting with digits (e.g., 100298037303)\n\n        If you find a tracking number, return just the tracking number.\n        If no tracking number is found, return \"NO_TRACKING_NUMBER\".\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 20,
+      "has_tracking_number": false
+    }
+  },
+  {
+    "stage": "extract_tracking_number",
+    "prompt": "وين شحنتي؟",
+    "response": "NO_TRACKING_NUMBER",
+    "timestamp": "2025-06-17T08:46:44.936939",
+    "metadata": {
+      "instruction": "\n        Your task is to extract a tracking number from the user's message, if one exists.\n        Common tracking number formats include:\n        - LT followed by 10 digits (e.g., LT1234567890)\n        - 16 digit numbers (e.g., 1234567890123456)\n        - Alphanumeric codes like AB123456789CD\n        - 12 digit numbers starting with digits (e.g., 100298037303)\n\n        If you find a tracking number, return just the tracking number.\n        If no tracking number is found, return \"NO_TRACKING_NUMBER\".\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 20,
+      "has_tracking_number": false
+    }
+  },
+  {
+    "stage": "extract_tracking_number",
+    "prompt": "أريد تتبع شحنتي برقم 100298037303",
+    "response": "100298037303",
+    "timestamp": "2025-06-17T08:46:48.541713",
+    "metadata": {
+      "instruction": "\n        Your task is to extract a tracking number from the user's message, if one exists.\n        Common tracking number formats include:\n        - LT followed by 10 digits (e.g., LT1234567890)\n        - 16 digit numbers (e.g., 1234567890123456)\n        - Alphanumeric codes like AB123456789CD\n        - 12 digit numbers starting with digits (e.g., 100298037303)\n\n        If you find a tracking number, return just the tracking number.\n        If no tracking number is found, return \"NO_TRACKING_NUMBER\".\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 20,
+      "has_tracking_number": true
+    }
+  },
+  {
+    "stage": "extract_tracking_number",
+    "prompt": "ما هي الشركة و ما خدماتها  ؟",
+    "response": "NO_TRACKING_NUMBER",
+    "timestamp": "2025-06-17T08:48:18.360289",
+    "metadata": {
+      "instruction": "\n        Your task is to extract a tracking number from the user's message, if one exists.\n        Common tracking number formats include:\n        - LT followed by 10 digits (e.g., LT1234567890)\n        - 16 digit numbers (e.g., 1234567890123456)\n        - Alphanumeric codes like AB123456789CD\n        - 12 digit numbers starting with digits (e.g., 100298037303)\n\n        If you find a tracking number, return just the tracking number.\n        If no tracking number is found, return \"NO_TRACKING_NUMBER\".\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 20,
+      "has_tracking_number": false
+    }
+  },
+  {
+    "stage": "extract_tracking_number",
+    "prompt": "ما هي الشركة و ما خدماتها  ؟",
+    "response": "NO_TRACKING_NUMBER",
+    "timestamp": "2025-06-17T08:49:41.850917",
+    "metadata": {
+      "instruction": "\n        Your task is to extract a tracking number from the user's message, if one exists.\n        Common tracking number formats include:\n        - LT followed by 10 digits (e.g., LT1234567890)\n        - 16 digit numbers (e.g., 1234567890123456)\n        - Alphanumeric codes like AB123456789CD\n        - 12 digit numbers starting with digits (e.g., 100298037303)\n\n        If you find a tracking number, return just the tracking number.\n        If no tracking number is found, return \"NO_TRACKING_NUMBER\".\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 20,
+      "has_tracking_number": false
+    }
+  },
+  {
+    "stage": "extract_tracking_number",
+    "prompt": "ما هي الشركة و ما خدماتها  ؟",
+    "response": "NO_TRACKING_NUMBER",
+    "timestamp": "2025-06-17T08:49:56.834802",
+    "metadata": {
+      "instruction": "\n        Your task is to extract a tracking number from the user's message, if one exists.\n        Common tracking number formats include:\n        - LT followed by 10 digits (e.g., LT1234567890)\n        - 16 digit numbers (e.g., 1234567890123456)\n        - Alphanumeric codes like AB123456789CD\n        - 12 digit numbers starting with digits (e.g., 100298037303)\n\n        If you find a tracking number, return just the tracking number.\n        If no tracking number is found, return \"NO_TRACKING_NUMBER\".\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 20,
+      "has_tracking_number": false
+    }
+  },
+  {
+    "stage": "extract_tracking_number",
+    "prompt": "أريد تتبع شحنتي",
+    "response": "NO_TRACKING_NUMBER",
+    "timestamp": "2025-06-17T08:52:03.625425",
+    "metadata": {
+      "instruction": "\n        Your task is to extract a tracking number from the user's message, if one exists.\n        Common tracking number formats include:\n        - LT followed by 10 digits (e.g., LT1234567890)\n        - 16 digit numbers (e.g., 1234567890123456)\n        - Alphanumeric codes like AB123456789CD\n        - 12 digit numbers starting with digits (e.g., 100298037303)\n\n        If you find a tracking number, return just the tracking number.\n        If no tracking number is found, return \"NO_TRACKING_NUMBER\".\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 20,
+      "has_tracking_number": false
+    }
+  },
+  {
+    "stage": "extract_tracking_number",
+    "prompt": "وين شحنتي؟",
+    "response": "NO_TRACKING_NUMBER",
+    "timestamp": "2025-06-17T08:52:08.936267",
+    "metadata": {
+      "instruction": "\n        Your task is to extract a tracking number from the user's message, if one exists.\n        Common tracking number formats include:\n        - LT followed by 10 digits (e.g., LT1234567890)\n        - 16 digit numbers (e.g., 1234567890123456)\n        - Alphanumeric codes like AB123456789CD\n        - 12 digit numbers starting with digits (e.g., 100298037303)\n\n        If you find a tracking number, return just the tracking number.\n        If no tracking number is found, return \"NO_TRACKING_NUMBER\".\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 20,
+      "has_tracking_number": false
+    }
+  },
+  {
+    "stage": "extract_tracking_number",
+    "prompt": "أريد تتبع شحنتي برقم 100298037303",
+    "response": "100298037303",
+    "timestamp": "2025-06-17T08:52:13.377487",
+    "metadata": {
+      "instruction": "\n        Your task is to extract a tracking number from the user's message, if one exists.\n        Common tracking number formats include:\n        - LT followed by 10 digits (e.g., LT1234567890)\n        - 16 digit numbers (e.g., 1234567890123456)\n        - Alphanumeric codes like AB123456789CD\n        - 12 digit numbers starting with digits (e.g., 100298037303)\n\n        If you find a tracking number, return just the tracking number.\n        If no tracking number is found, return \"NO_TRACKING_NUMBER\".\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 20,
+      "has_tracking_number": true
+    }
+  }
+]
