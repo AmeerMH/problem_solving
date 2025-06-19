@@ -1,0 +1,86 @@
+[
+  {
+    "stage": "extract_intent",
+    "prompt": "أريد تتبع شحنتي",
+    "response": "تتبع",
+    "timestamp": "2025-06-17T08:46:41.225921",
+    "metadata": {
+      "instruction": "the answer should be one word\n        Here are some examples of user queries and their intents:\n        - 'وين شحنتي؟' => shipment_tracking\n        - 'أريد معرفة حالة طلبي' => order_status\n        - 'ما هو رقم تتبعي؟' => tracking_number\n        - 'هل تم شحن طلبي؟' => shipment_status\n        - 'متى سيصل طلبي؟' => delivery_time\n        - 'أين يمكنني استلام شحنتي؟' => pickup_location\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10
+    }
+  },
+  {
+    "stage": "extract_intent",
+    "prompt": "وين شحنتي؟",
+    "response": "shipment_tracking",
+    "timestamp": "2025-06-17T08:46:45.472699",
+    "metadata": {
+      "instruction": "the answer should be one word\n        Here are some examples of user queries and their intents:\n        - 'وين شحنتي؟' => shipment_tracking\n        - 'أريد معرفة حالة طلبي' => order_status\n        - 'ما هو رقم تتبعي؟' => tracking_number\n        - 'هل تم شحن طلبي؟' => shipment_status\n        - 'متى سيصل طلبي؟' => delivery_time\n        - 'أين يمكنني استلام شحنتي؟' => pickup_location\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10
+    }
+  },
+  {
+    "stage": "extract_intent",
+    "prompt": "ما هي الشركة و ما خدماتها  ؟",
+    "response": "company_information",
+    "timestamp": "2025-06-17T08:48:18.973294",
+    "metadata": {
+      "instruction": "the answer should be one word\n        Here are some examples of user queries and their intents:\n        - 'وين شحنتي؟' => shipment_tracking\n        - 'أريد معرفة حالة طلبي' => order_status\n        - 'ما هو رقم تتبعي؟' => tracking_number\n        - 'هل تم شحن طلبي؟' => shipment_status\n        - 'متى سيصل طلبي؟' => delivery_time\n        - 'أين يمكنني استلام شحنتي؟' => pickup_location\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10
+    }
+  },
+  {
+    "stage": "extract_intent",
+    "prompt": "ما هي الشركة و ما خدماتها  ؟",
+    "response": "company_information",
+    "timestamp": "2025-06-17T08:49:42.476011",
+    "metadata": {
+      "instruction": "the answer should be one word\n        Here are some examples of user queries and their intents:\n        - 'وين شحنتي؟' => shipment_tracking\n        - 'أريد معرفة حالة طلبي' => order_status\n        - 'ما هو رقم تتبعي؟' => tracking_number\n        - 'هل تم شحن طلبي؟' => shipment_status\n        - 'متى سيصل طلبي؟' => delivery_time\n        - 'أين يمكنني استلام شحنتي؟' => pickup_location\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10
+    }
+  },
+  {
+    "stage": "extract_intent",
+    "prompt": "ما هي الشركة و ما خدماتها  ؟",
+    "response": "company_information",
+    "timestamp": "2025-06-17T08:49:57.344816",
+    "metadata": {
+      "instruction": "the answer should be one word\n        Here are some examples of user queries and their intents:\n        - 'وين شحنتي؟' => shipment_tracking\n        - 'أريد معرفة حالة طلبي' => order_status\n        - 'ما هو رقم تتبعي؟' => tracking_number\n        - 'هل تم شحن طلبي؟' => shipment_status\n        - 'متى سيصل طلبي؟' => delivery_time\n        - 'أين يمكنني استلام شحنتي؟' => pickup_location\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10
+    }
+  },
+  {
+    "stage": "extract_intent",
+    "prompt": "أريد تتبع شحنتي",
+    "response": "تتبع",
+    "timestamp": "2025-06-17T08:52:04.079455",
+    "metadata": {
+      "instruction": "the answer should be one word\n        Here are some examples of user queries and their intents:\n        - 'وين شحنتي؟' => shipment_tracking\n        - 'أريد معرفة حالة طلبي' => order_status\n        - 'ما هو رقم تتبعي؟' => tracking_number\n        - 'هل تم شحن طلبي؟' => shipment_status\n        - 'متى سيصل طلبي؟' => delivery_time\n        - 'أين يمكنني استلام شحنتي؟' => pickup_location\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10
+    }
+  },
+  {
+    "stage": "extract_intent",
+    "prompt": "وين شحنتي؟",
+    "response": "shipment_tracking",
+    "timestamp": "2025-06-17T08:52:09.439676",
+    "metadata": {
+      "instruction": "the answer should be one word\n        Here are some examples of user queries and their intents:\n        - 'وين شحنتي؟' => shipment_tracking\n        - 'أريد معرفة حالة طلبي' => order_status\n        - 'ما هو رقم تتبعي؟' => tracking_number\n        - 'هل تم شحن طلبي؟' => shipment_status\n        - 'متى سيصل طلبي؟' => delivery_time\n        - 'أين يمكنني استلام شحنتي؟' => pickup_location\n        ",
+      "model": "gemini-2.0-flash-exp",
+      "temperature": 0,
+      "max_tokens": 10
+    }
+  }
+]
