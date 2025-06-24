@@ -33,12 +33,11 @@ def normalize_text(text: str) -> str:
 
 def extract_shipment_info(prompt: str) -> str:
     system_instruction = """
-    You are a helpful assistant for LogesTechs company. Your job is to extract shipment-related information 
-    from user messages written in Arabic or English.
+    You are a helpful assistant for LogesTechs company. Your job is to extract shipment-related information from user messages written in Arabic or English.
 
     Your goal is to extract and return the following structured data (if mentioned). If a field is not present, set its value to null.
 
-    Respond **only** in the following JSON format:
+    Respond **only** in the following JSON format and always in the same order:
 
     {
         "recipient_info": {
@@ -74,7 +73,12 @@ def extract_shipment_info(prompt: str) -> str:
         }
     }
 
-    Always return this full JSON with null values for anything not mentioned in the input.
+    **Instructions:**
+    - Always return this full JSON with null values for anything not mentioned in the input.
+    - All date fields (such as expected_delivery_date, expected_collection_date) must be formatted as 'DD/MM/YYYY at HH:MM' (e.g., 28/06/2026 at 11:20).
+    - For package_height, package_width, and package_length, always return the value in centimeters (cm) as a number only (e.g., if user enters 1m, return 100; if 60cm, return 60; if 0.5m, return 50).
+    - If the user provides dimensions in meters or other units, convert them to centimeters and return only the number.
+    - Your output must always be deterministic and consistent for the same input.
     """
 
     prompt = normalize_text(prompt)
