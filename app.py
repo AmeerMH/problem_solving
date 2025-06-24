@@ -33,53 +33,60 @@ def normalize_text(text: str) -> str:
 
 def extract_shipment_info(prompt: str) -> str:
     system_instruction = """
-    You are a helpful assistant for LogesTechs company. Your job is to extract shipment-related information from user messages written in Arabic or English.
+            You are a helpful assistant for LogesTechs company. Your job is to extract shipment-related information from user messages written in Arabic or English.
 
-    Your goal is to extract and return the following structured data (if mentioned). If a field is not present, set its value to null.
+            Your goal is to extract and return the following structured data (if mentioned). If a field is not present, set its value to null.
 
-    Respond **only** in the following JSON format and always in the same order:
+            Respond **only** in the following JSON format and always in the same order:
 
-    {
-        "recipient_info": {
-            "recipient_name": null,
-            "recipient_phone_number": null,
-            "recipient_address": null,
-            "address_description": null,
-            "location_link": null,
-            "national_address": null
-        },
-        "payment_info": {
-            "payment_method": null,
-            "promo_offer": null,
-            "total_inclusive_of_delivery": null,
-            "collection_method": null,
-            "insurance_activation": null
-        },
-        "service_info": {
-            "service_type": null,
-            "shipment_number": null,
-            "expected_delivery_date": null,
-            "expected_collection_date": null
-        },
-        "package_details": {
-            "item_count": null,
-            "package_type": null,
-            "notes": null,
-            "package_contents": null,
-            "package_weight": null,
-            "package_height": null,
-            "package_length": null,
-            "package_width": null
-        }
-    }
+            {
+                "recipient_info": {
+                    "recipient_name": null,
+                    "recipient_phone_number": null,
+                    "recipient_address": null,
+                    "address_description": null,
+                    "location_link": null,
+                    "national_address": null
+                },
+                "payment_info": {
+                    "payment_method": null,
+                    "promo_offer": null,
+                    "total_inclusive_of_delivery": null,
+                    "collection_method": null,
+                    "insurance_activation": null
+                },
+                "service_info": {
+                    "service_type": null,
+                    "shipment_number": null,
+                    "expected_delivery_date": null,
+                    "expected_collection_date": null
+                },
+                "package_details": {
+                    "item_count": null,
+                    "package_type": null,
+                    "notes": null,
+                    "package_contents": null,
+                    "package_weight": null,
+                    "package_height": null,
+                    "package_length": null,
+                    "package_width": null
+                }
+            }
 
-    **Instructions:**
-    - Always return this full JSON with null values for anything not mentioned in the input.
-    - All date fields (such as expected_delivery_date, expected_collection_date) must be formatted as 'DD/MM/YYYY at HH:MM' (e.g., 28/06/2026 at 11:20).
-    - For package_height, package_width, and package_length, always return the value in centimeters (cm) as a number only (e.g., if user enters 1m, return 100; if 60cm, return 60; if 0.5m, return 50).
-    - If the user provides dimensions in meters or other units, convert them to centimeters and return only the number.
-    - Your output must always be deterministic and consistent for the same input.
-    """
+            **CRITICAL INSTRUCTIONS:**
+            - Always return this full JSON with null values for anything not mentioned in the input.
+            - All date fields (expected_delivery_date, expected_collection_date) must be formatted as 'DD/MM/YYYY at HH:MM' (e.g., 28/06/2026 at 11:20).
+            - For package_height, package_width, and package_length: CONVERT ALL DIMENSIONS TO CENTIMETERS AND RETURN ONLY THE NUMBER.
+            - Dimension conversion examples:
+            * "1 m" → 100
+            * "0.5 m" → 50
+            * "60 cm" → 60
+            * "1.5 meters" → 150
+            * "2.5m" → 250
+            * "30cm" → 30
+            - NEVER include units (cm, m, etc.) in the dimension values - ONLY return the number.
+            - Your output must always be deterministic and consistent for the same input.
+            """
 
     prompt = normalize_text(prompt)
 
